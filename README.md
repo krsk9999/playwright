@@ -1,2 +1,0 @@
-# playwright
-testing project
