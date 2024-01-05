@@ -3,14 +3,15 @@ import { users } from './testData/login.json';
 import { LoginPage } from '../pages/index'
 
 test.describe('Login',() => {    
-    test.beforeEach(async ({page}) => {        
+    test.beforeEach(async ({page}, testInfo) => {        
         await page.goto('/');
         await expect(page).toHaveTitle('Swag Labs');
-        await expect(page).toHaveURL('https://www.saucedemo.com/');              
+        await expect(page).toHaveURL(`${testInfo.project.use.baseURL}`);              
     });
 
-    test.only('Standard User Login', async ({ page }) => {
-        const loginPage = new LoginPage(page);
+    test.only('Standard User Login', async ({ page }, testInfo) => {
+        console.dir(testInfo.project.use.baseURL)
+        const loginPage = new LoginPage(page, testInfo);
         await loginPage.login(users.standard);
     });
 

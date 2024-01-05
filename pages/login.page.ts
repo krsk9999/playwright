@@ -1,4 +1,4 @@
-import { expect, type Locator, type Page } from '@playwright/test';
+import { expect, TestInfo, type Locator, type Page } from '@playwright/test';
 
 export class LoginPage {
   readonly page: Page;
@@ -7,8 +7,9 @@ export class LoginPage {
   readonly password: Locator;
   readonly errorMsg: Locator;
   readonly loginBtn: Locator;
+  readonly testInfo: TestInfo | undefined
 
-  constructor(page: Page) {
+  constructor(page: Page, testInfo?: TestInfo) {
     this.page = page;    
     this.title = page.locator('title'); 
     this.username = page.locator('#user-name');
@@ -29,7 +30,7 @@ export class LoginPage {
     await this.username.fill(user.username);
     await this.password.fill(user.password);
     await this.loginBtn.click();
-    await expect(this.page).toHaveURL('https://www.saucedemo.com/inventory.html');
+    if (this.testInfo) await expect(this.page).toHaveURL(`${this.testInfo.project.use.baseURL}/inventory.html`);
     await expect(this.page).toHaveTitle('Swag Labs');    
   }
 
