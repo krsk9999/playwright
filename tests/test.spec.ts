@@ -15,22 +15,27 @@ test.describe('Login',() => {
     });
 
     test('Locked Out User Login', async ({ page }) => {
-        console.dir(users.locked);
+        const loginPage = new LoginPage(page);
+        await loginPage.login(users.locked);
     });
 
     test('Problem User Login', async ({ page }) => {
-        console.dir(users.problem);
+        const loginPage = new LoginPage(page);
+        await loginPage.login(users.problem);
     });
 
     test('Performance Glitch User Login', async ({ page }) => {
-        console.dir(users.glitch);
+        const loginPage = new LoginPage(page);
+        await loginPage.login(users.glitch);
     });
 
     test('Error User Login', async ({ page }) => {
-        console.dir(users.error);
+        const loginPage = new LoginPage(page);
+        await loginPage.login(users.error);
     });
 
     test('Visual User Login', async ({ page }) => {
-        console.dir(users.visual);
+        const loginPage = new LoginPage(page);
+        await loginPage.login(users.visual);
     });
 });

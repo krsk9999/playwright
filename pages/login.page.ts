@@ -33,8 +33,4 @@ export class LoginPage {
     await expect(this.page).toHaveTitle('Swag Labs');    
   }
 
-//   async pageObjectModel() {
-//     await this.getStarted();
-//     await this.pomLink.click();
-//   }
 }
