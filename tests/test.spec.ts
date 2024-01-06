@@ -17,26 +17,31 @@ test.describe('Login',() => {
 
     test('Locked Out User Login', async ({ page }) => {
         const loginPage = new LoginPage(page);
+        await loginPage.goto();
         await loginPage.login(users.locked);
     });
 
     test('Problem User Login', async ({ page }) => {
         const loginPage = new LoginPage(page);
+        await loginPage.goto();
         await loginPage.login(users.problem);
     });
 
     test('Performance Glitch User Login', async ({ page }) => {
         const loginPage = new LoginPage(page);
+        await loginPage.goto();
         await loginPage.login(users.glitch);
     });
 
     test('Error User Login', async ({ page }) => {
         const loginPage = new LoginPage(page);
+        await loginPage.goto();
         await loginPage.login(users.error);
     });
 
     test('Visual User Login', async ({ page }) => {
         const loginPage = new LoginPage(page);
+        await loginPage.goto();
         await loginPage.login(users.visual);
     });
 });

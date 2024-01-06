@@ -20,6 +20,8 @@ export class LoginPage {
 
   async goto() {
     await this.page.goto('/');
+    await expect(this.title).toHaveText('Swag Labs');
+    if (this.testInfo) await expect(this.page).toHaveURL(`${this.testInfo?.project.use.baseURL}`);
   }
 
   async login(user: User) {
