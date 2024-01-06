@@ -36,4 +36,13 @@ export class LoginPage {
     await expect(this.page).toHaveTitle('Swag Labs');    
   }
 
+  async verifyPageLoaded () {
+    await expect(this.username).toBeVisible();
+    await expect(this.password).toBeVisible();
+    await expect(this.loginBtn).toBeVisible();
+    await expect(this.loginBtn).toBeEnabled();
+    await expect(this.title).toHaveText('Swag Labs');
+    if (this.testInfo) await expect(this.page).toHaveURL(`${this.testInfo?.project.use.baseURL}`);
+  }
+
 }
