@@ -4,7 +4,7 @@ import { LoginPage } from '../pages/index'
 
 test.describe('Login',() => {    
     test.beforeEach(async ({page}, testInfo) => {        
-        await page.goto('/');
+        await page.goto('/', { waitUntil: 'networkidle'});
         await expect(page).toHaveTitle('Swag Labs');
         await expect(page).toHaveURL(`${testInfo.project.use.baseURL}`);              
     });
